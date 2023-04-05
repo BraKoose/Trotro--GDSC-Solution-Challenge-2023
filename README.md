@@ -2,7 +2,9 @@
 
 Trotro Live Android Kotlin Jetpack Compose App This is an Android application built with Kotlin and Jetpack Compose, designed to provide real-time information on the location and status of trotros (public transport buses) in Ghana.
 
-[![Watch the video](http://trotro.live/static/images/wondering.jpeg)](https://youtu.be/vrZhUobS51I)
+WATCH DEMO VIDEO CLICK ON THE IMAGE OR VIDEO OF SCREENSHOT
+
+[![Watch the video](https://github.com/BraKoose/Trotro--GDSC-Solution-Challenge-2023/blob/master/Screenshot_20230405_012333.png)](https://youtu.be/vrZhUobS51I)
 
 
 Project Overview The Trotro Live app aims to solve the pain point of passengers who struggle with waiting for long periods at bus stops without any idea of when the next trotro will arrive, leading to delays, frustration and sometimes missed appointments. The app aims to provide real-time information on the location, availability and estimated arrival time of trotros to help passengers better plan their journeys and reduce waiting times.
