@@ -1,4 +1,4 @@
-TrotroLive---GDSC-Solution-Challenge-2023
+#TrotroLive-GDSC-Solution-Challenge-2023
 
 Trotro Live Android Kotlin Jetpack Compose App This is an Android application built with Kotlin and Jetpack Compose, designed to provide real-time information on the location and status of trotros (public transport buses) in Ghana.
 
