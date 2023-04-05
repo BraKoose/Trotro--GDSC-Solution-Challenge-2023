@@ -18,6 +18,7 @@ import com.example.trotroLive.data.Trotro
 import com.example.trotroLive.viewmodel.DetailsViewModel
 
 
+/*
 @Composable
 fun DetailsScreen(
     viewModel: DetailsViewModel = viewModel()
@@ -76,4 +77,4 @@ fun DetailsScreen(
             BusStopRow(busStop = busStop, distance = distance, farePrice = farePrice)
         }
     }
-}
+}*/

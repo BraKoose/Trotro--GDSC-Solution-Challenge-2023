@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.trotroLive.screen.HomeScreen
 import com.example.trotroLive.screen.WelcomeScreen
+import com.example.trotroLive.viewmodel.TrotroViewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalAnimationApi
@@ -14,17 +15,22 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 @Composable
 fun SetupNavGraph(
     navController: NavHostController,
-    startDestination: String
+    startDestination: String,
+    trotroViewModel: TrotroViewModel
+
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination
+        startDestination = startDestination,
+
     ) {
         composable(route = Screen.Welcome.route) {
             WelcomeScreen(navController = navController)
         }
         composable(route = Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(
+                trotroViewModel = trotroViewModel
+            )
         }
     }
 }

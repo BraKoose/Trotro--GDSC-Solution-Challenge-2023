@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,22 +19,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.trotroLive.R
 import com.example.trotroLive.data.Trotro
+import com.example.trotroLive.viewmodel.TrotroViewModel
 import java.util.*
+import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: MutableLiveData<Trotro>) {
+    val trotroList by trotroViewModel.trotros.observeAsState(listOf())
+
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Open))
     val contentState = remember{ ScrollState(0)}
+
     Scaffold(
         scaffoldState = scaffoldState,
         //TOPbAR of HOME Screen - With Profile Picture and Welcome TExt
@@ -133,35 +136,11 @@ fun HomeScreen() {
                     modifier = Modifier.padding(start = 16.dp, bottom = 20.dp),
                     fontWeight = FontWeight.Bold,
                 )
-                StationGrid(
-                    trotros = listOf(
-                        Trotro(
-                            stationName = "Kwame Nkrumah Circle",
-                            busStops = null,
-                            lastDestination = "Emena",
-                            agency = "GPRTU",
-                            lastUpdate = Date(),
-                            image = R.drawable.station_kn_circle,
-                        ),
-                        Trotro(
-                            stationName = "37 Station",
-                            busStops = null,
-                            lastDestination = "Achimota",
-                            agency = "VIP",
-                            lastUpdate = Date(),
-                            image = R.drawable.tirtyseven
-                        ),
-                        Trotro(
-                            stationName = "Tudu Station",
-                            busStops = null,
-                            lastDestination = "Mamobi",
-                            agency = "UT",
-                            lastUpdate = Date(),
-                            image = R.drawable.tudu_station
-                        ),
-                    ),
-                    onItemClick = { /*TODO*/ }
-                )
+                LazyColumn {
+                  items(trotros) { trotro ->
+                TrotroCard(trotro)
+            }
+        }
                 Text(
                     text = "Search for your trotro route",
                     fontSize = 15.sp,
@@ -184,65 +163,99 @@ fun HomeScreen() {
     )
 }
 
-@Composable
-fun StationGrid(trotros: List<Trotro>, onItemClick: (Trotro) -> Unit) {
-    LazyRow(
-        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp),
-
-    ) {
-        items(trotros.size) { index ->
-            StationCard(
-                trotro = trotros[index],
-                onClick = { onItemClick(trotros[index]) }
-            )
-        }
-    }
-}
 
 @Composable
-fun StationCard(trotro: Trotro, onClick: () -> Unit) {
+fun TrotroCard(trotro: Trotro) {
     Card(
+        shape = RoundedCornerShape(8.dp),
         modifier = Modifier
-            .padding(16.dp)
             .fillMaxWidth()
-            .clickable(onClick = onClick),
-        elevation = 8.dp,
-
+            .padding(16.dp)
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Image(
-                painter = painterResource(id = trotro.image),
-                contentDescription = "Image of ${trotro.stationName}",
-                modifier = Modifier
-                    .size(130.dp)
-            )
+        Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = trotro.stationName,
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
-                modifier = Modifier.padding(vertical = 8.dp)
-            )
-            Text(
-                text = "Last destination: ${trotro.lastDestination}",
-                fontStyle = FontStyle.Italic,
-                fontSize = 16.sp,
-                color = Color.Blue,
+                fontSize = 18.sp,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             Text(
-                text = "Last updated: ${trotro.lastUpdate}",
+                text = trotro.lastDestination,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = trotro.agency ?: "",
                 fontSize = 14.sp,
-                color = Color.Blue,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = trotro.lastUpdate.toString(),
+                fontSize = 14.sp,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Image(
+                painter = painterResource(id = trotro.image),
+                contentDescription = "Trotro Image",
                 modifier = Modifier
-                    .padding(bottom = 8.dp)
-
+                    .height(200.dp)
+                    .fillMaxWidth()
             )
         }
     }
 }
+
+@Composable
+fun TrotroListItem(trotro: Trotro) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        shape = RoundedCornerShape(8.dp),
+        elevation = 8.dp
+    ) {
+        Column(
+            modifier = Modifier
+                .clickable { /* navigate to trotro detail screen */ }
+                .padding(16.dp)
+        ) {
+            Text(text = trotro.stationName, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+            Text(text = trotro.lastDestination, fontWeight = FontWeight.Normal, fontSize = 16.sp)
+            Spacer(modifier = Modifier.height(8.dp))
+            Image(
+                painter = painterResource(id = trotro.image),
+                contentDescription = null,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+    }
+}
+
+
+//@Composable
+//fun HomeScreen() {
+//
+//    Column {
+//        Text(
+//            text = "Trotros",
+//            fontSize = 20.sp,
+//            fontWeight = FontWeight.Bold,
+//            textAlign = TextAlign.Center,
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(vertical = 16.dp)
+//        )
+//        LazyColumn {
+//            items(trotros) { trotro ->
+//                TrotroCard(trotro)
+//            }
+//        }
+//    }
+//
+//}
+
+
 
 @Composable
 fun SearchBar() {
@@ -289,8 +302,8 @@ fun TrotroIntroduction() {
     )
 }
 
-@Composable
-@Preview(showBackground = true)
-fun HomeScreenPreview() {
-    HomeScreen()
-}
+//@Composable
+//@Preview(showBackground = true)
+//fun HomeScreenPreview() {
+//    HomeScreen()
+//}
