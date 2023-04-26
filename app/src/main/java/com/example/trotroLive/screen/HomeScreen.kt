@@ -157,7 +157,8 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
                             "GPRTU",
                             Date(),
                             R.drawable.tudu_station
-                        ))
+                        ),
+                        )
                     }
                   items(trotroList) { trotro ->
                 TrotroListItem(trotro)
@@ -165,6 +166,8 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
         }
 
                 Spacer(modifier = Modifier.height(20.dp))
+
+                SearchBar()
 
                 Text(
                     text = "Popular routes",
@@ -193,48 +196,6 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
     )
 }
 
-
-@Composable
-fun TrotroCard(trotro: Trotro) {
-    Card(
-        shape = RoundedCornerShape(8.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = trotro.stationName,
-                fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-            Text(
-                text = trotro.lastDestination,
-                fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-            Text(
-                text = trotro.agency ?: "",
-                fontSize = 14.sp,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-            Text(
-                text = trotro.lastUpdate.toString(),
-                fontSize = 14.sp,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-            Image(
-                painter = painterResource(id = trotro.image),
-                contentDescription = "Trotro Image",
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth()
-            )
-        }
-    }
-}
 
 @Composable
 fun TrotroListItem(trotro: Trotro) {
@@ -334,7 +295,8 @@ fun PopularRouteListItem(trotro: Trotro) {
 }
 
 
-    @Composable
+
+@Composable
 fun SearchBar() {
     val textState = remember { mutableStateOf(TextFieldValue()) }
     TextField(
@@ -348,36 +310,26 @@ fun SearchBar() {
             Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon")
         },
         colors = TextFieldDefaults.textFieldColors(
-            textColor = Color.Blue,
+            textColor = Color.Gray,
             backgroundColor = Color.White,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent
         ),
         placeholder = {
-            Text(text = "Enter station or route name", color = Color.LightGray, fontSize = 16.sp)
+            Text(text = "Try to find...", color = Color.LightGray, fontSize = 16.sp)
         }
 
     )
 }
-
 @Composable
-fun TrotroIntroduction() {
-    Text(
-        text = "Know Your Fare",
-        style = MaterialTheme.typography.h6,
-        color = Color.Black,
-        modifier = Modifier.padding(vertical = 8.dp)
-
-    )
-
-    Text(
-        text = "Using Trotro Live helps you avoid fights with your trotro mate. No more wahala! 🚍😎",
-        style = MaterialTheme.typography.body2,
-        color = Color.Blue,
-        modifier = Modifier.padding(top = 16.dp)
-    )
+@Preview
+fun searchPreview(){
+    SearchBar()
 }
+
+
+
 
 @Composable
 @Preview(showBackground = true)

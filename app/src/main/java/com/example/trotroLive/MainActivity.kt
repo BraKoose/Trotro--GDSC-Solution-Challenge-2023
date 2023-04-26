@@ -5,7 +5,11 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.example.trotroLive.navigation.SetupNavGraph
@@ -38,9 +42,13 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             TrotroTheme {
-                val screen by splashViewModel.startDestination
-                val navController = rememberNavController()
-                SetupNavGraph(navController = navController, startDestination = screen, trotroViewModel = TrotroViewModel())
+                Surface(modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background) {
+                    val screen by splashViewModel.startDestination
+                    val navController = rememberNavController()
+                    SetupNavGraph(navController = navController, startDestination = screen, trotroViewModel = TrotroViewModel())
+
+                }
             }
         }
     }
