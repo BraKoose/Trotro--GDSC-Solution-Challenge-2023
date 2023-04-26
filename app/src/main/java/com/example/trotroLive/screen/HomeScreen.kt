@@ -27,13 +27,20 @@ import com.example.trotroLive.R
 import com.example.trotroLive.data.Trotro
 import com.example.trotroLive.viewmodel.TrotroViewModel
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.trotroLive.data.BusStop
+import java.util.*
 
 @Composable
 fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
     val trotroList by trotroViewModel.trotros.observeAsState(listOf())
 
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Open))
-    val contentState = remember{ ScrollState(0)}
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -123,34 +130,61 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
 
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
-                 //   .verticalScroll(contentState)
-            ) {
+                    .padding(paddingValues = it)
+                    .padding(start = 16.dp)
+                    .fillMaxSize()
+                ) {
                 Text(
                     text = "Stations near you",
                     fontSize = 20.sp,
                     modifier = Modifier.padding(start = 16.dp, bottom = 20.dp),
                     fontWeight = FontWeight.Bold,
                 )
-                LazyColumn {
+
+
+                //Rccycle View Trotro Station Near You
+
+
+                LazyRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(20.dp)
+                ) {
+                    item{
+                        TrotroListItem(Trotro(
+                            "Kwame Nkrumah Circle",
+                            BusStop("Kaneshie", "Odorkor", 10 to "GHS"),
+                            "Circle",
+                            "GPRTU",
+                            Date(),
+                            R.drawable.tudu_station
+                        ))
+                    }
                   items(trotroList) { trotro ->
-                TrotroCard(trotro)
+                TrotroListItem(trotro)
             }
         }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
                 Text(
-                    text = "Search for your trotro route",
-                    fontSize = 15.sp,
+                    text = "Popular routes",
+                    fontSize = 20.sp,
                     modifier = Modifier.padding(start = 16.dp, bottom = 20.dp),
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
                 )
-                // Recycler View
-                Column(modifier = Modifier.fillMaxHeight(1f), verticalArrangement = Arrangement.spacedBy(20.dp),
-                ){
-                    SearchBar()
-                    TrotroIntroduction()
 
-
+                // Recycle View Popular Routes make scrollable and clickable
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+                ) {
+                    items(trotroList) { trotro ->
+                        PopularRouteListItem(trotro)
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
                 }
+
 
             }
         } ,
@@ -204,56 +238,103 @@ fun TrotroCard(trotro: Trotro) {
 
 @Composable
 fun TrotroListItem(trotro: Trotro) {
-    Card(
+    Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        shape = RoundedCornerShape(8.dp),
-        elevation = 8.dp
+            .width(width = 190.dp)
+            .padding(start = 16.dp)
+            .drawBehind {
+                drawRoundRect(
+                    color = Color.Gray,
+                    style = Stroke(
+                        width = 2f,
+                        pathEffect = PathEffect.dashPathEffect(
+                            floatArrayOf(10f, 10f),
+                            0f
+                        )
+                    ),
+                    cornerRadius = CornerRadius(8.dp.toPx())
+                )
+            },
+        contentAlignment = Alignment.Center
     ) {
         Column(
             modifier = Modifier
-                .clickable { /* navigate to trotro detail screen */ }
                 .padding(16.dp)
         ) {
-            Text(text = trotro.stationName, fontWeight = FontWeight.Bold, fontSize = 20.sp)
-            Text(text = trotro.lastDestination, fontWeight = FontWeight.Normal, fontSize = 16.sp)
+            Text(
+                text = trotro.stationName,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp
+            )
+            Text(
+                text = trotro.lastDestination,
+                fontWeight = FontWeight.Normal,
+                fontSize = 16.sp
+            )
             Spacer(modifier = Modifier.height(8.dp))
             Image(
-                painter = painterResource(id = trotro.image),
+                painter = painterResource(id = R.drawable.tudu_station), // Assuming trotro.imageResId is the resource ID of the image
                 contentDescription = null,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .padding(32.dp)
+                    .fillMaxWidth(0f)
+                    .focusable(true)
             )
         }
     }
 }
 
 
-//@Composable
-//fun HomeScreen() {
-//
-//    Column {
-//        Text(
-//            text = "Trotros",
-//            fontSize = 20.sp,
-//            fontWeight = FontWeight.Bold,
-//            textAlign = TextAlign.Center,
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(vertical = 16.dp)
-//        )
-//        LazyColumn {
-//            items(trotros) { trotro ->
-//                TrotroCard(trotro)
-//            }
-//        }
-//    }
-//
-//}
-
-
-
 @Composable
+fun PopularRouteListItem(trotro: Trotro) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { /* TODO */ },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Image(
+            painter = painterResource(id = trotro.image),
+            contentDescription = "Trotro Station",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(60.dp)
+                .clip(RoundedCornerShape(10.dp))
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp)
+        ) {
+            Text(
+                text = trotro.stationName,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                text = trotro.busStops.toString(),
+                fontSize = 14.sp,
+                color = Color.Gray,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            trotro.agency?.let {
+                Text(
+                    text = it,
+                    fontSize = 14.sp,
+                    color = Color.Gray,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
+    }
+}
+
+
+    @Composable
 fun SearchBar() {
     val textState = remember { mutableStateOf(TextFieldValue()) }
     TextField(
@@ -298,8 +379,11 @@ fun TrotroIntroduction() {
     )
 }
 
-//@Composable
-//@Preview(showBackground = true)
-//fun HomeScreenPreview() {
-//    HomeScreen()
-//}
+@Composable
+@Preview(showBackground = true)
+fun HomeScreenPreview() {
+    HomeScreen(
+        trotroViewModel = TrotroViewModel(),
+        trotros = TrotroViewModel().trotros.value
+    )
+}
