@@ -233,14 +233,6 @@ fun TrotroListItem(trotro: Trotro) {
                 fontSize = 16.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
-            Image(
-                painter = painterResource(id = R.drawable.tudu_station), // Assuming trotro.imageResId is the resource ID of the image
-                contentDescription = null,
-                modifier = Modifier
-                    .padding(32.dp)
-                    .fillMaxWidth(0f)
-                    .focusable(true)
-            )
         }
     }
 }
@@ -310,14 +302,14 @@ fun SearchBar() {
             Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon")
         },
         colors = TextFieldDefaults.textFieldColors(
-            textColor = Color.Gray,
+            textColor = Color.Blue,
             backgroundColor = Color.White,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent
         ),
         placeholder = {
-            Text(text = "Try to find...", color = Color.LightGray, fontSize = 16.sp)
+            Text(text = "Try to find...", color = Color.Blue, fontSize = 16.sp)
         }
 
     )
