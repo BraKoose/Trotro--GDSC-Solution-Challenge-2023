@@ -17,10 +17,10 @@ class DetailsViewModel : ViewModel() {
     val farePrices: LiveData<Map<String, Double>?>
         get() = _farePrices
 
-    fun setSelectedTrotro(trotro: Trotro) {
+  /*  fun setSelectedTrotro(trotro: Trotro) {
         _selectedTrotro.value = trotro
 
         // Populate the bus stops and fare prices state from the selected trotro
         _busStops.value = trotro.busStops
-    }
+    }*/
 }

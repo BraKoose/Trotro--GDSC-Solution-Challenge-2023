@@ -10,7 +10,11 @@ data class Trotro(
     val agency: String?,
     val lastUpdate: Date,
     val image: Int
-)
+) {
+    fun getTrotros(): List<Trotro>? {
+        return trotros
+    }
+}
 
 val trotros = listOf(
     Trotro(

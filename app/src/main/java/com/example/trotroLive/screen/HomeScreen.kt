@@ -21,19 +21,15 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.trotroLive.R
 import com.example.trotroLive.data.Trotro
 import com.example.trotroLive.viewmodel.TrotroViewModel
-import java.util.*
-import androidx.compose.runtime.collectAsState
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.livedata.observeAsState
 
 @Composable
-fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: MutableLiveData<Trotro>) {
+fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
     val trotroList by trotroViewModel.trotros.observeAsState(listOf())
 
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Open))
@@ -128,7 +124,7 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: MutableLiveData<Trotro
             Column(
                 modifier = Modifier
                     .padding(16.dp)
-                    .verticalScroll(contentState)
+                 //   .verticalScroll(contentState)
             ) {
                 Text(
                     text = "Stations near you",
@@ -137,7 +133,7 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: MutableLiveData<Trotro
                     fontWeight = FontWeight.Bold,
                 )
                 LazyColumn {
-                  items(trotros) { trotro ->
+                  items(trotroList) { trotro ->
                 TrotroCard(trotro)
             }
         }

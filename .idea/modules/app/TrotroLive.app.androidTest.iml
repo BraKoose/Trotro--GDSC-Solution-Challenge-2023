@@ -18,9 +18,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/45ab5c2ab4ab776a50a15ecb7d49fd0c/transformed/ui-test-junit4-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7aebc0e03f9c913161087706fc6d9485/transformed/junit-1.1.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3831461c0d41f84091d2f3cb1e6aee62/transformed/espresso-core-3.4.0-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/e940833c58ba15bee0b1aa52a825e68e/transformed/accompanist-pager-indicators-0.24.2-alpha-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/8e0082c4d9994d426c31b777dece4950/transformed/accompanist-pager-0.24.2-alpha-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/491f6717d41dab1421b4c48dc0ee8d53/transformed/snapper-0.1.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/de53af4f4d265d04024266742df65164/transformed/hilt-navigation-compose-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/91a63fedb20998dc7c0f5ad9a98dd718/transformed/navigation-compose-2.5.0-alpha02-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/385c3f851a8c2e660c70f76a67771c6e/transformed/activity-compose-1.5.0-alpha02-api.jar</arg>
@@ -33,9 +30,13 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/6e5d627ef5719950634ac9b145752b65/transformed/lifecycle-runtime-ktx-2.5.0-alpha02-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2724b2afb677a54e6bf254c8203c34cc/transformed/ui-tooling-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/06f4138016cea7ddcc7323632532a8cc/transformed/ui-tooling-preview-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/bb6dcbbb9ef9cd0889a1e9b785ed7cc7/transformed/runtime-livedata-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d5b52122c6b5115407aadd2d4b2afc0a/transformed/ui-test-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/16afa6365191f544f3623990557d2696/transformed/ui-tooling-data-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f04343bb27ebe7fd938ff335275ada2f/transformed/lifecycle-viewmodel-compose-2.5.0-alpha02-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/e940833c58ba15bee0b1aa52a825e68e/transformed/accompanist-pager-indicators-0.24.2-alpha-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/8e0082c4d9994d426c31b777dece4950/transformed/accompanist-pager-0.24.2-alpha-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/491f6717d41dab1421b4c48dc0ee8d53/transformed/snapper-0.1.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ca3fc340787ea7bb59bec4c3a1a2f556/transformed/material-1.2.0-alpha03-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2dcfcbf5fa0d1b857c7ea0f535ffa16e/transformed/material-ripple-1.2.0-alpha03-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9381e115c07fa8cd4a6918be985b3599/transformed/foundation-1.2.0-alpha03-api.jar</arg>
@@ -74,7 +75,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/512bea2cc2ed15ba2c7c5f43237ae2e9/transformed/customview-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d62177ab28012ad27c657df9ed9ba4ce/transformed/core-1.8.0-alpha04-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e1edfc7d4b255335e2443c2d153c3f1a/transformed/lifecycle-runtime-2.5.0-alpha02-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/7abc31c0e37468e2b788867af723b88d/transformed/lifecycle-livedata-2.0.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/76a56f3236c66b15e00d6b5f1f33ab2c/transformed/lifecycle-livedata-2.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9c724435895962f8f201a0e71814f55f/transformed/lifecycle-livedata-core-2.5.0-alpha02-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.5.0-alpha02/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.5.0-alpha02.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/5f4989a0ce9636ee936799550a0eb527/transformed/lifecycle-viewmodel-2.5.0-alpha02-api.jar</arg>
@@ -215,9 +216,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-test-junit4:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.ext:junit:1.1.3@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.4.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.accompanist:accompanist-pager-indicators:0.24.2-alpha@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.accompanist:accompanist-pager:0.24.2-alpha@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: dev.chrisbanes.snapper:snapper:0.1.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.hilt:hilt-navigation-compose:1.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.navigation:navigation-compose:2.5.0-alpha02@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.activity:activity-compose:1.5.0-alpha02@aar" level="project" />
@@ -230,9 +228,13 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha02@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-tooling:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-tooling-preview:1.1.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.runtime:runtime-livedata:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-test:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-tooling-data:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha02@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.accompanist:accompanist-pager-indicators:0.24.2-alpha@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.accompanist:accompanist-pager:0.24.2-alpha@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: dev.chrisbanes.snapper:snapper:0.1.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material:1.2.0-alpha03@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material-ripple:1.2.0-alpha03@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.foundation:foundation:1.2.0-alpha03@aar" level="project" />
@@ -261,7 +263,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.core:core:1.8.0-alpha04@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.5.0-alpha02@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.0-alpha02@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.0-alpha02@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.savedstate:savedstate-ktx:1.2.0-alpha01@aar" level="project" />

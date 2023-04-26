@@ -28,6 +28,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e940833c58ba15bee0b1aa52a825e68e/transformed/accompanist-pager-indicators-0.24.2-alpha-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ca3fc340787ea7bb59bec4c3a1a2f556/transformed/material-1.2.0-alpha03-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/06f4138016cea7ddcc7323632532a8cc/transformed/ui-tooling-preview-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/bb6dcbbb9ef9cd0889a1e9b785ed7cc7/transformed/runtime-livedata-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/16afa6365191f544f3623990557d2696/transformed/ui-tooling-data-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8e0082c4d9994d426c31b777dece4950/transformed/accompanist-pager-0.24.2-alpha-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2dcfcbf5fa0d1b857c7ea0f535ffa16e/transformed/material-ripple-1.2.0-alpha03-api.jar</arg>
@@ -70,7 +71,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/cd5415ba0e514907a0f5d222bb872fbb/transformed/ui-unit-1.2.0-alpha03-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e5c1929f4e64b6f43fd5172fc581b72f/transformed/ui-geometry-1.2.0-alpha03-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e1edfc7d4b255335e2443c2d153c3f1a/transformed/lifecycle-runtime-2.5.0-alpha02-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/7abc31c0e37468e2b788867af723b88d/transformed/lifecycle-livedata-2.0.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/76a56f3236c66b15e00d6b5f1f33ab2c/transformed/lifecycle-livedata-2.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9c724435895962f8f201a0e71814f55f/transformed/lifecycle-livedata-core-2.5.0-alpha02-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.5.0-alpha02/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.5.0-alpha02.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/842bc5cfe0dcd778a418bcdd79b3085f/transformed/savedstate-1.2.0-alpha01-api.jar</arg>
@@ -196,6 +197,7 @@
     <orderEntry type="library" name="Gradle: com.google.accompanist:accompanist-pager-indicators:0.24.2-alpha@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.material:material:1.2.0-alpha03@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.ui:ui-tooling-preview:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.compose.runtime:runtime-livedata:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.ui:ui-tooling-data:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.accompanist:accompanist-pager:0.24.2-alpha@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.material:material-ripple:1.2.0-alpha03@aar" level="project" />
@@ -229,7 +231,7 @@
     <orderEntry type="library" name="Gradle: androidx.compose.ui:ui-unit:1.2.0-alpha03@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.ui:ui-geometry:1.2.0-alpha03@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.5.0-alpha02@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.0-alpha02@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate:1.2.0-alpha01@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar" level="project" />

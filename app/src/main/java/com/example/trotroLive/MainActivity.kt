@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.trotroLive.navigation.SetupNavGraph
 import com.example.trotroLive.ui.theme.TrotroTheme
 import com.example.trotroLive.viewmodel.SplashViewModel
+import com.example.trotroLive.viewmodel.TrotroViewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
             TrotroTheme {
                 val screen by splashViewModel.startDestination
                 val navController = rememberNavController()
-                SetupNavGraph(navController = navController, startDestination = screen)
+                SetupNavGraph(navController = navController, startDestination = screen, trotroViewModel = TrotroViewModel())
             }
         }
     }

@@ -29,7 +29,8 @@ fun SetupNavGraph(
         }
         composable(route = Screen.Home.route) {
             HomeScreen(
-                trotroViewModel = trotroViewModel
+                trotroViewModel = trotroViewModel,
+                trotros = trotroViewModel.trotros.value// Pass the trotros LiveData from TrotroViewModel
             )
         }
     }
