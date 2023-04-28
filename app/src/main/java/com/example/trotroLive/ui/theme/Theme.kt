@@ -6,25 +6,26 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
-private val DarkColorPalette = darkColors(
-    primary = Primary,
-    primaryVariant = PrimaryVariant,
-    secondary = Secondary
-)
-
 private val LightColorPalette = lightColors(
     primary = Primary,
-    primaryVariant = PrimaryVariant,
-    secondary = Secondary
+    secondary = Secondary,
+    surface = SecondaryShade,
+    onPrimary = Black,
+    onError = Warning,
+    onSurface = SecondaryVariant,
+    onBackground = Black
+)
 
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+private val DarkColorPalette = darkColors(
+    //
+primary = PrimaryDark,
+    secondary = SecondaryShade,
+    surface = Black,
+    onPrimary = Info,
+    onError = Warning,
+    error = Warning,
+    onSurface = SecondaryVariant,
+    onBackground = PrimaryDark
 )
 
 @Composable
@@ -32,14 +33,8 @@ fun TrotroTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-
     MaterialTheme(
-        colors = colors,
+        colors = if (darkTheme) DarkColorPalette else LightColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content

@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TrotroTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
+                    color = (MaterialTheme.colors.background)) {
                     val screen by splashViewModel.startDestination
                     val navController = rememberNavController()
                     SetupNavGraph(navController = navController, startDestination = screen, trotroViewModel = TrotroViewModel())

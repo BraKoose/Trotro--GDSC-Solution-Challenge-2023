@@ -96,7 +96,7 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 2.dp),
-                backgroundColor = colorResource(id = R.color.primary)
+                backgroundColor = (MaterialTheme.colors.primary)
             ) {
                 BottomNavigationItem(
                     selected = true, onClick = { /*TODO*/ }, icon = {
@@ -134,6 +134,9 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
                     .padding(start = 16.dp)
                     .fillMaxSize()
                 ) {
+
+                SearchBar()
+
                 Text(
                     text = "Stations near you",
                     fontSize = 20.sp,
@@ -167,7 +170,7 @@ fun HomeScreen(trotroViewModel: TrotroViewModel, trotros: List<Trotro>?) {
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                SearchBar()
+
 
                 Text(
                     text = "Popular routes",

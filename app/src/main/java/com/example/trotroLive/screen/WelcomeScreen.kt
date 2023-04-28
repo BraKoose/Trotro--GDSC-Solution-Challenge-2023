@@ -85,7 +85,8 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
             text = onBoardingPage.title,
             fontSize = MaterialTheme.typography.h4.fontSize,
             fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colors.primaryVariant
         )
         Text(
             modifier = Modifier
